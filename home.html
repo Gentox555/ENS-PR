@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link href="style2.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="bg">
+
+   <div class="img1">
+       <img src="th2.png" alt="">
+   </div>
+   <div class="circle"></div>
+   <p class="P1">ABOUT</p>
+   <p class="P2">Pour ajouter ta carte personnel cliquer ici! <a href="form.html"><strong>Formulaire</strong></a></p>
+
+   <ul class="user-grid" id="user-data"></ul>
+  
+    
+
+   <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database-compat.js"></script>
+   <script>
+     const firebaseConfig = {
+        apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+        authDomain: "zidane-1d73b.firebaseapp.com",
+        databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+        projectId: "zidane-1d73b",
+        storageBucket: "zidane-1d73b.appspot.com",
+        messagingSenderId: "371404037602",
+        appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+  
+
+  firebase.initializeApp(firebaseConfig);
+     const database = firebase.database();
+ 
+     // Récupérer les données depuis Firebase
+     database.ref('users').once('value')
+       .then((snapshot) => {
+         const userData = snapshot.val();
+         const userDataList = document.getElementById('user-data');
+
+         let userCount = 0;
+
+         for (const key in userData) {
+           if (Object.hasOwnProperty.call(userData, key)) {
+             const user = userData[key];
+
+             const listItem = document.createElement('div');
+             const imageElement = document.createElement('img');
+             imageElement.src = user.image;
+             imageElement.classList.add('user-image');
+
+             imageElement.addEventListener('click', () => {
+                const overlayElement = document.createElement('div');
+                    overlayElement.classList.add('image-overlay');
+                    document.body.appendChild(overlayElement);
+
+                    const overlayContent = document.createElement('div');
+                    overlayContent.classList.add('overlay-content');
+
+
+                    const userImage = document.createElement('img');
+                    userImage.src = user.image;
+                    userImage.classList.add('user-image-overlay');
+                    overlayContent.appendChild(userImage);
+
+
+                    overlayContent.innerHTML += `
+                        <div class="p10"><strong>Nom:</strong> ${user.nom}</div><br>
+                        <div class="p11"><strong>Prénom:</strong> ${user.prenom}</div><br>
+                        <div class="p12"><strong>Email:</strong> ${user.email}</div><br>
+                        <div class="p13"><strong>Age:</strong> ${user.age}</div><br>
+                        <div class="p14"><strong>Telephone:</strong> ${user.telephone}</div><br>
+                        <div class="p15"><strong>Genre:</strong> ${user.genre}</div><br>
+                        <div class="p155"><strong>Annee d'étude:</strong> ${user.annee_etude}</div><br>
+                        <div class="p16"><strong>Ecole:</strong> ${user.ecole}</div><br>
+                        <div class="p17"><strong>Université:</strong> ${user.universite}</div><br>
+                        <div class="p18"><strong>Ville:</strong> ${user.ville}</div><br>
+                        <div class="p19"><strong>Annee d'inscription:</strong> ${user.annee_inscription}</div><br>
+                        <div class="p20"><strong>Annee de diplomation:</strong> ${user.annee_diplomation}</div><br>
+                        <div class="p21"><strong>Filière:</strong> ${user.filiere}</div><br>
+                        <div class="p22"><strong>Clubs:</strong> ${user.clubs}</div><br>
+                        <div class="p23"><strong>Interêts:</strong> ${user.interets}</div><br>
+                        <div class="p24"><strong>Reseau Sociaux:</strong><br>
+                        <strong>GitHub:</strong> ${user.github}<br>
+                        <strong>Instagram:</strong> ${user.instagram}<br>
+                        <strong>Facebook:</strong> ${user.facebook}</div><br>
+                        <a href=home.html><i class='fas fa-window-close' style='font-size:24px; margin-left: 1350px; transform: translateY(-5.75rem); color:red'></i></a>
+                     
+                    `;
+                    overlayElement.appendChild(overlayContent);
+                    
+  
+                 
+  
+              });
+
+
+             listItem.appendChild(imageElement);
+             userDataList.appendChild(listItem);
+             userDataList.classList.add('user-grid');
+
+             userCount++;
+
+             if (userCount % 4 === 0) {
+               const breakElement = document.createElement('div');
+               breakElement.classList.add('break');
+               userDataList.appendChild(breakElement);
+             }
+           }
+         }
+       })
+
+     
+        .catch((error) => {
+         console.error('Erreur lors de la récupération des données:', error);
+       });
+
+       
+   </script>
+</body>
+</html>

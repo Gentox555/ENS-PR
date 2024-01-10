@@ -1,0 +1,254 @@
+.bg{
+    background: #9A9C46;
+    overflow: hidden;
+    
+    
+}
+.border{
+ width: 1000px;
+ height: 600px;
+ flex-shrink: 0;
+ border-radius: 85px;
+ background: #FFF;
+ box-shadow: 29px 38px 41.7px -14px rgba(0, 0, 0, 0.60);
+ transform: translateY(3.75rem);
+ margin-left: 15%;
+}
+
+img{
+ width: 530px;
+ height: 600px;
+ flex-shrink: 0;
+ border-radius: 85px;
+
+}
+
+.T{
+color: #000;
+font-family: Inter;
+font-size: 50px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+transform: translateX(34.25rem);
+margin-top:-600px ;
+}
+
+.P{
+color: #000;
+font-size: 30px;
+font-style: normal;
+font-weight: 100px;
+transform: translateX(33.25rem);
+
+}
+
+.PP {
+  font-size: 30px;
+font-style: normal;
+font-weight: 100;
+line-height: normal;
+transform: translateY(-0rem);
+margin-left: 10px;}
+
+.PP a{
+  color: #9A9C46;
+  font-size: 30px;
+font-style: normal;
+font-weight: 100;
+line-height: normal;
+transform: translateY(-0rem);
+margin-left: 10px;
+
+}
+.form{
+    transform: translateX(33.25rem);
+}
+
+.element {
+    border-radius: 0.25rem; /* Arrondir les coins */
+    border-width: 2px; /* Largeur de la bordure */
+    width: 20rem; /* Largeur de l'élément */
+    height: 35px; /* Hauteur de l'élément */
+    color: black; /* Couleur du texte */
+    background-color: transparent; /* Arrière-plan transparent */
+    border-color: black; /* Couleur de la bordure */
+    margin-left: 10px;
+    
+  }
+
+.checkbox{
+    background-color: transparent; /* Arrière-plan transparent */
+    border-color: black ; /* Couleur de la bordure */
+    margin-top: -28px;   
+}
+
+.interieur{
+    width: 20rem; /* Largeur de l'élément */
+    height: 25px;
+    transform: translateX(-8.75rem);
+    margin-top: 20px; 
+}
+
+.remember{
+font-size: 30px;
+font-style: normal;
+font-weight: 100;
+line-height: normal;
+transform: translateX(2.75rem);
+margin-top: -52px;  
+}
+
+.signup{
+border-radius: 44.5px;
+background: #9A9C46;
+width: 150px;
+height: 50px;
+transform: translateX(16.75rem);
+margin-top: 70px;
+border-color: transparent;
+}
+.P1{
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 100px;
+    transform: translateY(-1rem);
+}
+.line {
+    border: none; /* Supprime la bordure par défaut */
+    height: 1px; /* Hauteur de la ligne */
+    background-color: black; /* Couleur de la ligne */
+    width: 100px;
+    transform: translateX(-27.75rem);
+    margin-top:-60px;
+  }
+
+  .line2 {
+    border: none; /* Supprime la bordure par défaut */
+    height: 1px; /* Hauteur de la ligne */
+    background-color: black; /* Couleur de la ligne */
+    width: 100px;
+    transform: translateX(-18.75rem);
+    margin-top:-9px;
+  }
+
+  .P3{
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 100px;
+    transform: translateY(-2.80rem);
+    margin-left: 115px;
+
+  }
+  .P4{
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 100px;
+    transform: translateY(-4.80rem);
+    margin-left: 106px;
+
+  }
+
+.img2{
+width: 163px;
+height: 59px;
+flex-shrink: 0;
+transform: translateY(-7rem);
+margin-left: 50px;
+
+
+}
+/*//////////////////style de signin/////////////////////////////////*/
+.img1{
+  transform: translateX(30rem);
+  width: 530px;
+  height: 600px;
+  flex-shrink: 0;
+  border-radius: 85px;
+}
+.S{
+  color: #000;
+font-family: Inter;
+font-size: 64px;
+font-style: normal;
+line-height: normal;
+margin-top: -580px;
+margin-left: 30px;
+}
+.SS{
+  color: #000;
+  font-size: 30px;
+  font-weight: 300;
+  width: 637px;
+  height: 191px;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+.form1{
+  transform: translateX(1rem);
+  margin-top: -70px;
+}
+.SSS a{
+  color: #9A9C46;
+font-family: Inter;
+font-size: 20px;
+line-height: normal;
+margin-left: 120px;
+text-decoration: none;
+}
+.singin{
+  border-radius: 44.5px;
+background: #9A9C46;
+width: 150px;
+height: 50px;
+transform: translateX(0.75rem);
+margin-top: 110px;
+border-color: transparent;
+}
+.line1{
+  border: none; /* Supprime la bordure par défaut */
+  height: 1px; /* Hauteur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  width: 100px;
+  transform: translateX(-16.25rem);
+  margin-top:-53px;
+}
+
+.line11{
+  border: none; /* Supprime la bordure par défaut */
+  height: 1px; /* Hauteur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  width: 100px;
+  transform: translateX(-7.75rem);
+  margin-top:-9px;
+}
+.P33{
+  color: #000;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 100px;
+  transform: translateY(-2.80rem);
+  margin-left: 295px;
+
+}
+.P44{
+  color: #000;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 100px;
+  transform: translateY(-4.80rem);
+  margin-left: 284px;
+
+}
+.img22{
+  width: 163px;
+  height: 59px;
+  flex-shrink: 0;
+  transform: translateY(-7rem);
+  margin-left: 231px;
+  
+  }
+

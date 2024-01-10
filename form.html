@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style3.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="bg">
+    <div class="img1">
+        <img src="th2.png" alt="">
+    </div>
+    <div class="bor">
+        <form>
+            <div class="nom">
+            <label for="nom">Nom :</label><br>
+            <input type="text" id="nom" name="nom"><br><br></div>
+        
+            <div class="prenom">
+            <label for="prenom">Prénom :</label><br>
+            <input type="text" id="prenom" name="prenom"><br><br></div>
+
+            <div class="email">
+            <label for="email">Email :</label><br>
+            <input type="email" id="email" name="email"><br><br></div>
+        
+            <div class="tel">
+            <label for="telephone">Téléphone :</label><br>
+            <input type="tel" id="tel" name="telephone"><br><br></div>
+        
+            <div class="age">
+            <label for="age">Âge :</label><br>
+            <input type="number" id="age" name="age"><br><br></div>
+            
+            <div class="genre">
+            <label for="genre">Genre :</label><br>
+            <select id="genre" name="genre">
+              <option value="homme">Homme</option>
+              <option value="femme">Femme</option>
+              <option value="autre">Autre</option>
+            </select><br><br></div>
+
+             <div class="annee">
+            <label for="annee_etude">Année d'étude en cours :</label><br>
+            <input type="number" id="annee" name="annee_etude"><br><br></div>
+        
+            <div class="ecole">
+            <label for="ecole">École :</label><br>
+            <input type="text" id="ecole" name="ecole"><br><br></div>
+
+            <div class="uni">
+            <label for="universite">Université :</label><br>
+            <input type="text" id="uni" name="universite"><br><br></div>
+        
+            <div class="ville">
+            <label for="ville">Ville :</label><br>
+            <input type="text" id="ville" name="ville"><br><br></div>
+        
+            <div class="anin">
+            <label for="annee_inscription">Année d'inscription :</label><br>
+            <input type="number" id="anin" name="annee_inscription"><br><br></div>
+        
+            <div class="andi">
+            <label for="annee_diplomation">Année de diplomation (promotion) :</label><br>
+            <input type="number" id="andi" name="annee_diplomation"><br><br></div>
+        
+            <div class="filiere">
+            <label for="filiere">Filière :</label><br>
+            <input type="text" id="filiere" name="filiere"><br><br></div>
+        
+            <div class="clubs">
+            <label for="clubs">Clubs :</label><br>
+            <input type="text" id="clubs" name="clubs"><br><br></div>
+        
+            <div class="interets">
+            <label for="interets">Intérêts :</label><br>
+            <input type="text" id="interets" name="interets"><br><br></div>
+
+           
+            <div class="reseaux">
+                <label for="reseaux_sociaux">Réseaux sociaux :</label><br>
+                <div class="icon">
+                  <i class="fab fa-github"></i>
+                  <input type="text" id="github" name="github" placeholder="GitHub"><br>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-linkedin-in"></i>
+                  <input type="text" id="linkedin" name="linkedin" placeholder="LinkedIn"><br>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-instagram-square"></i>
+                  <input type="text" id="instagram" name="instagram" placeholder="Instagram"><br>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-facebook"></i>
+                  <input type="text" id="facebook" name="facebook" placeholder="Facebook"><br>
+                </div>
+              </div>
+              
+            <div class="img">
+            <label for="image">Image :</label><br>
+            <input type="file" id="img" name="image"><br><br>
+            </div>
+        
+            <a href="" class="b7">Construit ma carte</a><br><br> 
+            
+          </form>
+          
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-storage-compat.js"></script>
+
+
+    <script>
+     const firebaseConfig = {
+        apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+        authDomain: "zidane-1d73b.firebaseapp.com",
+        databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+        projectId: "zidane-1d73b",
+        storageBucket: "zidane-1d73b.appspot.com",
+        messagingSenderId: "371404037602",
+        appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.b7').addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const formData = {
+          nom: document.getElementById('nom').value,
+            prenom: document.getElementById('prenom').value,
+            email: document.getElementById('email').value,
+            telephone: document.getElementById('tel').value,
+            age: document.getElementById('age').value,
+            genre: document.getElementById('genre').value,
+            annee_etude: document.getElementById('annee').value,
+            ecole: document.getElementById('ecole').value,
+            universite: document.getElementById('uni').value,
+            ville: document.getElementById('ville').value,
+            annee_inscription: document.getElementById('anin').value,
+            annee_diplomation: document.getElementById('andi').value,
+            filiere: document.getElementById('filiere').value,
+            clubs: document.getElementById('clubs').value,
+            interets: document.getElementById('interets').value,
+            github: document.getElementById('github').value,
+            linkedin: document.getElementById('linkedin').value,
+            instagram: document.getElementById('instagram').value,
+            facebook: document.getElementById('facebook').value,
+            image: document.getElementById('img').value,
+        };
+
+        const fileInput = document.getElementById('img');
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const storageRef = firebase.storage().ref();
+            const imageRef = storageRef.child(`images/${file.name}`);
+
+            imageRef.put(file).then((snapshot) => {
+                snapshot.ref.getDownloadURL().then((imageUrl) => {
+                    formData.image = imageUrl;
+
+                    // Enregistrez les données avec l'URL de l'image dans Firebase Realtime Database
+                    database.ref('users').push(formData)
+                        .then(() => {
+                            alert('Données et image enregistrées avec succès ');
+                            window.location.href = "home.html";
+                            // Actions après l'enregistrement réussi
+                        })
+                        .catch((error) => {
+                            console.error('Erreur lors de l\'enregistrement des données dans Firebase:', error);
+                        });
+                }).catch((error) => {
+                    console.error('Erreur lors de la récupération de l\'URL de l\'image:', error);
+                });
+            }).catch((error) => {
+                console.error('Erreur lors du téléchargement de l\'image vers Firebase Storage:', error);
+            });
+        } else {
+            // Gérer le cas où aucun fichier n'est sélectionné
+            console.error('Aucun fichier sélectionné.');
+        }
+    });
+});
+</script>
+    
+</body>
+</html>

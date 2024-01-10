@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body class="bg">
+    <div class="border">
+        <img  class="img1" src="1.png" alt="" >
+        <div class="S">Sign in</div>
+        <div class="SS">Attention, don't forget your<br> password next time.</div>
+        <form class="form1">
+            <div class="f1">
+                <label htmlFor="email"></label> <br />
+                <input type="text" name="email" placeholder="Your Email" class="element" id="email" ></input>
+            </div><br/>
+      
+            <div class="f1">
+                <label htmlFor="password"></label> <br />
+                <input type="password" name="password" placeholder="Password"  class="element" id="password"></input>
+               
+            </div> <br />
+            <button class="singin">
+                <p class=P1>Sign In</p>
+              </button>
+              
+    </div>
+
+     
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+    <script>
+        // Configurer Firebase
+        const firebaseConfig = {
+    apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+    authDomain: "zidane-1d73b.firebaseapp.com",
+    databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+    projectId: "zidane-1d73b",
+    storageBucket: "zidane-1d73b.appspot.com",
+    messagingSenderId: "371404037602",
+    appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+        // Initialiser Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Fonction pour la connexion
+        function signin(event) {
+            event.preventDefault(); // Empêche le rechargement de la page après la soumission du formulaire
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Connexion de l'utilisateur avec Firebase Auth
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // L'utilisateur est connecté avec succès
+                    const user = userCredential.user;
+                    console.log("Utilisateur connecté:", user);
+                    window.location.href = "home.html"; // Redirection vers la page d'accueil
+                })
+                .catch((error) => {
+                    // Une erreur s'est produite lors de la connexion
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Erreur lors de la connexion:", errorCode, errorMessage);
+                    alert("Erreur lors de la connexion. Veuillez vérifier vos informations.");
+                });
+        }
+
+        // Attacher la fonction signin à l'événement submit du formulaire de connexion
+        document.querySelector('.form1').addEventListener('submit', signin);
+    </script>
+</body>
+</html>

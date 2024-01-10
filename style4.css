@@ -1,0 +1,68 @@
+.bg{
+    background: #9A9C46;
+    overflow: hidden;
+}
+.border{
+ width: 1000px;
+ height: 600px;
+ flex-shrink: 0;
+ border-radius: 85px;
+ background: #FFF;
+ box-shadow: 29px 38px 41.7px -14px rgba(0, 0, 0, 0.60);
+ transform: translateY(4.25rem);
+ margin-left: 15%;
+}
+.img1{
+width: 1001px;
+height: 170px;
+flex-shrink: 0;
+border-radius: 85px 85px 5px 5px;
+}
+.img2{
+ width: 450px;
+height: 306px;
+flex-shrink: 0;
+margin-top: 30px;
+
+}
+.P1{
+color: #000;
+font-family: Inter;
+font-size: 48px;
+font-style: normal;
+line-height: normal;
+width: 258px;
+height: 116px;
+flex-shrink: 0;
+transform: translateX(37.25rem);
+margin-top: -310px;
+}
+.form{
+    transform: translateX(37.25rem);
+    margin-top: -20px;
+}
+.element {
+    border-radius: 0.25rem; /* Arrondir les coins */
+    border-width: 2px; /* Largeur de la bordure */
+    width: 20rem; /* Largeur de l'élément */
+    height: 35px; /* Hauteur de l'élément */
+    color: black; /* Couleur du texte */
+    background-color: transparent; /* Arrière-plan transparent */
+    border-color: black; /* Couleur de la bordure */ 
+}
+.next{
+    border-radius: 44.5px;
+    background: #9A9C46;
+    width: 150px;
+    height: 50px;
+    transform: translateX(12.75rem);
+    margin-top: 90px;
+    border-color: transparent;
+}
+.P11{
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 100px;
+    transform: translateY(-1rem);
+}

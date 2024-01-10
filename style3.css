@@ -1,0 +1,189 @@
+.bg{
+    background: #9A9C46;
+    
+}
+.img1{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.bor{
+    width: 700px;
+    height: 1000px;
+    flex-shrink: 0;
+    border-radius: 55px;
+    background: #FFF;
+    box-shadow: 33px 28px 36.5px 2px rgba(0, 0, 0, 0.25);
+    margin-left: 410px;
+    margin-top: 40px;
+}
+.nom{
+    margin-left: 50px;
+    transform: translateY(3.75rem);
+}
+#nom,#prenom{
+    height: 25px;
+    border-style: solid;
+}
+.prenom{
+    margin-left: 400px;
+    transform: translateY(-6px);
+}
+.email{
+    margin-left: 50px;
+}
+#email{
+    width: 512px;
+    height: 25px;
+    border-style: solid;
+}
+.tel{
+    margin-left: 50px;
+}
+#tel{
+    height: 25px;
+    border-style: solid;
+}
+.age{
+    margin-left: 300px;
+    transform: translateY(-67px);
+}
+#age{
+    height: 25px;
+    width: 60px;
+    border-style: solid;
+}
+.genre{
+    margin-left: 469px;
+    transform: translateY(-129px);
+}
+#genre{
+    width: 100px;
+    height: 25px;
+    border-style: solid;
+}
+.annee{
+     margin-left: 50px;
+     transform: translateY(-129px);
+}
+#annee{
+    width: 60px;
+    height: 25px;
+    border-style: solid;
+}
+.ecole{
+    margin-left: 400px;
+    transform: translateY(-196px);
+}
+#ecole{
+    height: 25px;
+    border-style: solid;
+}
+.uni{
+    margin-left:50px ;
+    transform: translateY(-196px);
+}
+#uni{
+    height: 25px;
+    border-style: solid;
+}
+.ville{
+    margin-left: 400px;
+    transform: translateY(-264px);
+}
+#ville{
+    height: 25px;
+    border-style: solid;
+}
+.anin{
+    margin-left:50px ;
+    transform: translateY(-260px);
+}
+#anin{
+    height: 25px;
+    width: 60px;
+    border-style: solid;
+}
+.andi{
+    margin-left:300px ;
+    transform: translateY(-320px);
+}
+#andi{
+    height: 25px;
+    width: 60px;
+    border-style: solid;
+}
+.filiere{
+    margin-left:50px ;
+    transform: translateY(-322px);
+}
+#filiere{
+    height: 25px;
+    border-style: solid;
+    
+}
+.clubs{
+    margin-left: 400px;
+    transform: translateY(-390px);
+}
+#clubs{
+    height: 25px;
+    border-style: solid;
+}
+.interets{
+    margin-left:50px ;
+    transform: translateY(-382px);
+}
+#interets{
+    height: 25px;
+    border-style: solid;
+}
+.reseaux{
+    margin-left:400px ;
+    transform: translateY(-450px);
+}
+#reseaux{
+    height: 80px;
+    border-style: solid;
+    border-color: transparent;
+}
+.icon {
+    display: flex;
+    align-items: center;
+    
+  }
+ .img{
+    margin-left:50px ;
+    transform: translateY(-452px);
+ }
+ #img{
+     height: 100px;
+ }
+ .b7{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333333;
+    font-size: 18px;
+    border-radius: 0px;
+    font-weight: bold;
+    border: 2px solid;
+    box-shadow: 5px 5px 0px rgba(51, 51, 51, 1) ;
+    transition: 0.3s;
+    transform: translateY(-490px);
+   margin-left: 100px;
+
+}
+.b7:hover{
+    box-shadow: 0 0 #333;
+    color: #fff;
+    background-color: black
+}

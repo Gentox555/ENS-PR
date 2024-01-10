@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style4.css">
+    <title>Document</title>
+</head>
+<body class="bg">
+    <div class="border">
+        <img src="th3.png" alt="" class="img1">
+        <img src="th4.png" alt="" class="img2">
+        <p class="P1">Forget Password?</p>
+        <form class="form">
+            <div class="f1">
+                <label htmlFor="email">please enter your address email</label> <br /><br>
+                <input type="text" name="email" class="element" id="ema">
+            </div><br/>
+
+            <button class="next">
+                <p class="P11">Next</p>
+            </button>
+
+        </form>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+    <script>
+        // Configuration Firebase et initialisation
+        const firebaseConfig = {
+    apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+    authDomain: "zidane-1d73b.firebaseapp.com",
+    databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+    projectId: "zidane-1d73b",
+    storageBucket: "zidane-1d73b.appspot.com",
+    messagingSenderId: "371404037602",
+    appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+        // Initialiser Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Fonction pour envoyer le lien de réinitialisation par e-mail
+        function sendResetEmail(event) {
+            event.preventDefault();
+            const email = document.getElementById('ema').value;
+
+            firebase.auth().sendPasswordResetEmail(email)
+                .then(() => {
+                    // E-mail envoyé avec succès
+                    alert("An email with password reset instructions has been sent to your email address.");
+                    window.location.href = "resetss.html";
+                })
+                .catch((error) => {
+                    // Une erreur s'est produite lors de l'envoi de l'e-mail
+                    console.error("Error sending reset email:", error);
+                    alert("Error sending reset email. Please check your email address.");
+                });
+        }
+
+        // Attacher la fonction sendResetEmail à l'événement submit du formulaire de réinitialisation de mot de passe
+        document.querySelector('.form').addEventListener('submit', sendResetEmail);
+    </script>
+    
+</body>
+</html>
