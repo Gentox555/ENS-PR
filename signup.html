@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>GENTOX55</title>
+    <link rel="icon" href="C:\Users\anas boudraa\OneDrive\Bureau\Final\th5.jpg" type="image/x-icon">
+</head>
+<body class="bg">
+    <div class="border">
+        <img src="1.png" alt="">
+        <div class="T">Sign up</div>
+        <div class="P">Don’t have an account? create an<br/> Account, it takes less than a minute </div>
+        <form class="form" onsubmit="signup(event)" id="signupForm">
+            <div class="f1">
+                <label htmlFor="email"></label> <br />
+                <input type="text" name="email" placeholder="Your Email" class="element" id="ema">
+            </div><br/>
+      
+            <div class="f1">
+                <label htmlFor="password"></label> <br />
+                <input type="password" name="password" placeholder="Password"  class="element" id="password">
+            </div> <br />
+            <div class="f1">
+                <label htmlFor="password"></label> <br />
+                <input type="password" name="confirmPassword" placeholder="Confirm Password "  class="element" id="conpass"><br/>
+            </div><br/>
+            <div class="checkbox">
+                <br/>
+                <input type="checkbox" name="checkbox" class="interieur"><br/> 
+            </div><br/>
+            <div class="remember">Remember me</div><br>
+            <div class="PP">Alrdy have ancount?<a href="signin.html">Sign in</a> </div>
+            
+            <button class="signup">
+                <p class="P1">Sign Up</p>
+            </button>
+
+            <hr class="line">
+            <hr class="line2">
+            <p class="P3">Or</p>
+            <p class="P4">With</p>
+            <img class="img2" src="th1.png" alt="" id="googleSignIn">
+        </form>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+    <script>
+        // Configurer Firebase
+        const firebaseConfig = {
+    apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+    authDomain: "zidane-1d73b.firebaseapp.com",
+    databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+    projectId: "zidane-1d73b",
+    storageBucket: "zidane-1d73b.appspot.com",
+    messagingSenderId: "371404037602",
+    appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+        
+        // Initialiser Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Fonction pour l'inscription
+        function signup(event) {
+    event.preventDefault(); // Empêche le rechargement de la page après la soumission du formulaire
+
+    const email = document.getElementById('ema').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('conpass').value;
+
+    // Vérification du mot de passe
+    if (password !== confirmPassword) {
+        alert("Les mots de passe ne correspondent pas");
+        return;
+    }
+
+    // Création de l'utilisateur avec Firebase Auth
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // L'utilisateur est inscrit avec succès
+            const user = userCredential.user;
+            console.log("Utilisateur créé:", user);
+
+            // Enregistrement des données utilisateur dans la base de données
+            const userId = user.uid; // Obtenez l'ID de l'utilisateur
+            const userRef = firebase.database().ref('users/' + userId); // Référence à l'emplacement de l'utilisateur dans la base de données
+
+            userDataRef.set({
+                email: email,
+                
+                // Autres données que vous souhaitez enregistrer
+            }).then(() => {
+                console.log('Données enregistrées avec succès dans la base de données.');
+                // Redirection après l'inscription
+            }).catch((error) => {
+                console.error("Erreur lors de l'enregistrement des données:", error);
+            });
+
+        })
+        .catch((error) => {
+            // Une erreur s'est produite lors de l'inscription
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            if (errorCode === 'auth/email-already-in-use') {
+                alert('MECI !!.');
+                window.location.href = "home.html";
+            } else {
+                console.error("Erreur lors de l'inscription:", errorCode, errorMessage);
+            }
+        });
+}
+
+
+        // Attacher la fonction signup à l'événement submit du formulaire
+        document.getElementById('signupForm').addEventListener('submit', signup);
+        // Fonction pour l'inscription avec Google
+function signUpWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+            // L'utilisateur est connecté avec Google avec succès
+            const user = result.user;
+            console.log("Utilisateur Google connecté:", user);
+            
+            // Vous pouvez rediriger l'utilisateur ou effectuer d'autres actions ici
+        })
+        .catch((error) => {
+            // Une erreur s'est produite lors de la connexion avec Google
+            console.error("Erreur lors de la connexion avec Google:", error);
+        });
+}
+
+// Attacher la fonction signUpWithGoogle à l'événement click du bouton
+document.getElementById('googleSignIn').addEventListener('click', signUpWithGoogle);
+
+    </script>
+</body>
+</html>

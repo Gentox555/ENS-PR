@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENTOX55</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="C:\Users\anas boudraa\OneDrive\Bureau\Final\th5.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style2.css">
+    <script defer src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+    <script>
+
+function attachFile() {
+            // Simuler le choix d'un fichier
+            const fileInput = document.getElementById('file-input');
+            if (fileInput) {
+                fileInput.click();
+            } else {
+                console.error("File input not found.");
+            }
+        }
+
+        function handleFileChange() {
+            // Cette fonction est appelée lorsqu'un fichier est choisi
+            const fileInput = document.getElementById('file-input');
+            const selectedFile = fileInput.files[0];
+            console.log('Fichier attaché:', selectedFile.name);
+        }
+
+        function insertEmojis(emojis) {
+            // Insérer plusieurs emojis dans la zone de saisie du message
+            const messageInput = document.getElementById('message-input');
+            emojis.forEach(emoji => {
+                messageInput.value += emoji;
+            });
+        }
+    </script>
+    
+</head>
+<body class="bg1">
+    <div class="bor">
+        <img src="th3.png" alt="" class="img22">
+        <div class="chat-container">
+            <div id="chat-messages"></div>
+            <input type="text" id="message-input" placeholder="Type your message" class="chat" onchange="handleFileChange()">
+            <input type="file" id="file-input" style="display: none;" onchange="handleFileChange()">
+            <i class="icon fas fa-paperclip" title="Attach file" id="i1"onclick="attachFile()" ></i>
+            <i class="icon fas fa-smile" title="Insert emoji" id="i2" onclick="insertEmojis(['😊', '😍', '🥰'])"></i>
+            <button onclick="sendMessage()" class="b10">Send</button>
+        </div>
+          
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database-compat.js"></script>
+
+<!-- Initialisez Firebase avec votre configuration -->
+<script>
+   const firebaseConfig = {
+        apiKey: "AIzaSyDfQKSzPLFbk3-ISZJwmCX7mYq99L7k6Js",
+        authDomain: "zidane-1d73b.firebaseapp.com",
+        databaseURL: "https://zidane-1d73b-default-rtdb.firebaseio.com",
+        projectId: "zidane-1d73b",
+        storageBucket: "zidane-1d73b.appspot.com",
+        messagingSenderId: "371404037602",
+        appId: "1:371404037602:web:c5dba945860eabf18e2dbb"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  // Initialisez la base de données
+  const database = firebase.database();
+</script>
+
+
+
+<script>
+  // Fonction pour envoyer un message
+  function sendMessage() {
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value;
+
+    if (message.trim() !== '') {
+      const chatMessages = database.ref('chat-messages');
+      chatMessages.push({
+        message: message,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      });
+
+      messageInput.value = '';
+    }
+  }
+
+  // Fonction pour afficher les messages dans le chat
+  function displayMessages(snapshot) {
+    const chatMessagesDiv = document.getElementById('chat-messages');
+    const message = snapshot.val();
+    const messageDiv = document.createElement('div');
+    messageDiv.innerText = `${message.message}`;
+    chatMessagesDiv.appendChild(messageDiv);
+  }
+
+  // Surveillez les changements dans la base de données pour mettre à jour le chat en temps réel
+  database.ref('chat-messages').on('child_added', displayMessages);
+</script>
+</body>
+</html>

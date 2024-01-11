@@ -187,3 +187,188 @@
     color: #fff;
     background-color: black
 }
+/*/////////////////////////index//////////////////////////////*/
+
+.bg1{
+    background-image: url('nature.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+.bor1{
+width: 599px;
+height: 379px;
+background-color: rgba(255, 255, 255, 0.5);
+margin-left: 30px;
+margin-top: -400px;
+animation: fadeInRight 3s ease-out;
+
+}
+.img2{
+width: 262px;
+height: 334px;
+flex-shrink: 0;
+margin-left: 15px;
+margin-top: 20px;
+}
+.text{
+    margin-top: -322px;
+    margin-left: 290px;
+    color: #000;
+    font-size: larger;
+    
+}
+.bor2{
+    width: 1299px;
+    height: 429px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 180px;
+    transform: translateY(14rem);
+    z-index: 9999;
+    border: 1px solid transparent; 
+    backdrop-filter: blur(10px); 
+    animation: fadeInLeft 2s ease-out
+}
+.img3{
+    width: 399px;
+    height: 334px;
+    flex-shrink: 0;
+    margin-left: -25px;
+    margin-top: 50px;
+}
+.img4{
+    width: 33px;
+height: 33px;
+flex-shrink: 0;
+transform: translateY(-19rem);
+margin-left: -25px;
+}
+.text2{
+    color: #000;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+transform: translateY(-22.75rem);
+margin-left: 395px;
+}
+.text3{
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    width: 500px;
+    transform: translateY(-23.25rem);
+    margin-left: 410px;
+}
+.img5{
+    width: 383px;
+    height: 434px;
+    flex-shrink: 0;
+    transform: translateY(-46.75rem);
+    margin-left: 905px;
+    }
+
+.B4{
+        display:flex;
+        width: 200px;
+        height: 40px;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        font-size: 18px;
+        color: #ff0000;
+        background-color: transparent;
+        border-radius: 5px;
+        border: 2px solid;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+        margin-left: 1070px;
+        transform: translateY(-3.55rem);
+    }
+.B4:before{
+        content: "Now";
+        display: block;
+        font-size: 11px;
+        width: 60px;
+        text-align: center;
+        background-color: #f00;
+        color: #fff;
+        padding: 7px 0 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-34%, -4px) rotate(-35deg);
+        transition: 0.3s;
+    }
+.B4:hover{
+        color: #fff;
+        background-color: #f00;
+    }
+.B4:hover:before{
+        background-color: #fff;
+        color: #f00;
+    }
+
+    .B5{
+        display: flex;
+        width: 200px;
+        height: 40px;
+        text-decoration: none;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+        color: #07b92a;
+        background-color: transparent;
+        border-radius: 5px;
+        border: solid 1px  #07b92a;
+        position: relative;
+        transition: 0.3;
+        line-height: 1;
+        margin-left: 1300px;
+        margin-top: -100px;
+    
+    }
+    .B5::before{
+        content: "LETS GO";
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        font-size: 13px;
+        background-color: #07B92A;
+        color: #fff;
+        border-radius: 3px;
+        padding: 3px 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-5px, -30%);
+        transition: 0.3s;
+    }
+    .B5:hover::before{
+          transform: translate(-5px,-50%);
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px); /* Adjust the initial position based on your design */
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px); /* Adjust the initial position based on your design */
+        }
+        to {
+            opacity: 1;
+            transform: translateX(30);
+        }
+    }

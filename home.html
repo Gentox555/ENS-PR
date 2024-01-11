@@ -14,11 +14,13 @@
    <div class="img1">
        <img src="th2.png" alt="">
    </div>
-   <div class="circle"></div>
-   <p class="P1">ABOUT</p>
+   <a href="message.html"><button class="b100">Send a message</button></a>
    <p class="P2">Pour ajouter ta carte personnel cliquer ici! <a href="form.html"><strong>Formulaire</strong></a></p>
-
+   
+  
+  
    <ul class="user-grid" id="user-data"></ul>
+
   
     
 
@@ -57,7 +59,7 @@
              imageElement.classList.add('user-image');
 
              imageElement.addEventListener('click', () => {
-                const overlayElement = document.createElement('div');
+                    const overlayElement = document.createElement('div');
                     overlayElement.classList.add('image-overlay');
                     document.body.appendChild(overlayElement);
 
@@ -94,10 +96,7 @@
                         <a href=home.html><i class='fas fa-window-close' style='font-size:24px; margin-left: 1350px; transform: translateY(-5.75rem); color:red'></i></a>
                      
                     `;
-                    overlayElement.appendChild(overlayContent);
-                    
-  
-                 
+                    overlayElement.appendChild(overlayContent);  
   
               });
 
@@ -121,6 +120,9 @@
         .catch((error) => {
          console.error('Erreur lors de la récupération des données:', error);
        });
+      
+
+  
 
        
    </script>
